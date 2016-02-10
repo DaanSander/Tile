@@ -1,5 +1,6 @@
 package com.daansander.game.level;
 
+import com.daansander.game.Game;
 import com.daansander.game.graphics.Screen;
 import com.daansander.game.level.tile.Tile;
 
@@ -26,18 +27,10 @@ public class Level {
 	int y = 0, x = 0;
 
 	private void renderTiles(Screen screen, int xScroll, int yScroll) {
-		for (int i = 0; i < tiles.length; i++) {
-			if (x >= SIZE) {
-				y++;
-				x = 0;
+		for(int y = 0; y < (Game.HEIGHT + yScroll) / 16; y++) {
+			for(int x = 0; x < (Game.WIDTH + xScroll) / 16; x++) {
+				screen.renderTile(x, y, Tile.grassTile);
 			}
-			
-//			screen.renderTile(x, y, Tile.grassTile);
-			tiles[i].render(x + xScroll, y + yScroll, screen);
-			x++;
 		}
-
-		x = 0;
-		y = 0;
 	}
 }
