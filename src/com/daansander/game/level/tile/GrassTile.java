@@ -5,6 +5,6 @@ import com.daansander.game.graphics.Sprite;
 public class GrassTile extends Tile {
 	
 	public GrassTile() {
-		super(Sprite.grassSprite);
+		super(Sprite.grassSprite, 0);
 	}
 }
